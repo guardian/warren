@@ -2,7 +2,7 @@ import com.gu.riffraff.artifact.BuildInfo
 import play.sbt.PlayImport.PlayKeys._
 
 name := "warren"
-description := "Hunt tories, not rabbits"
+description := "Don't hunt rabbits"
 
 scalaVersion in ThisBuild := "2.12.5"
 
