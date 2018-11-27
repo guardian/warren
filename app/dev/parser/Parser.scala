@@ -8,7 +8,7 @@ import play.api.libs.json._
 
 object Parser {
 
-	private[parser] def importFileContents(fileName: String): Iterator[String] = {
+	private def importFileContents(fileName: String): Iterator[String] = {
 		val bufferedSource = Source.fromFile(fileName)
 		val fileContents = bufferedSource.getLines
 		bufferedSource.close
@@ -27,7 +27,7 @@ object Parser {
 		}
 	}
 
-	private[parser] def parseFile(fileContents: Iterator[String]): Iterator[Entry] = {
+	def parseFile(fileContents: Iterator[String]): Iterator[Entry] = {
 		fileContents.flatMap { line =>
 			parseEntry(Json.parse(line)).asOpt
 		}
