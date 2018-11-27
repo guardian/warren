@@ -13,6 +13,7 @@ scalacOptions += "-Ypartial-unification"
 libraryDependencies ++= Seq(
   ws,
   // General
+	"org.bouncycastle"          % "bcprov-jdk15on"               % "1.58",
   "com.typesafe.play"        %% "play-json"                    % "2.6.9",
   "com.beachape"             %% "enumeratum-play"              % "1.5.12-2.6.0-M5",
   "org.typelevel"            %% "cats-core"                    % "1.4.0",

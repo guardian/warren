@@ -1,36 +1,32 @@
 import java.security.Security
 
-import controllers._
-import extraction.{PdfOcrExtractor, TikaExtractor}
+import controllers.{AssetsComponents, Search}
 import org.bouncycastle.jce.provider.BouncyCastleProvider
 import play.api.ApplicationLoader.Context
 import play.api.BuiltInComponentsFromContext
 import play.api.mvc.EssentialFilter
 import play.filters.HttpFiltersComponents
-import scalikejdbc.config.DBs
 import router.Routes
-import services.workers.{IngestionWorker, WorkerScheduler}
-import services.{Config, Database}
+import services.{Config, ElasticsearchClient, SearchIndex}
 import utils.EnvironmentMetadata
-import utils.aws.S3Client
-import utils.controller.{AuthActionBuilder, DefaultAuthActionBuilder}
+import utils.attempt.AttemptAwait._
 
 class AppComponents(context: Context, config: Config, environmentMetadata: Option[EnvironmentMetadata])
 	extends BuiltInComponentsFromContext(context) with HttpFiltersComponents with AssetsComponents {
 
-	val index = Index
+	Security.addProvider(new BouncyCastleProvider())
+
+	val index = ElasticsearchClient(config).await()
+
+	val searchIndex = new SearchIndex(index, config.elasticsearch)
 
 	val cc = controllerComponents
 
-	val search = Search(index, cc)
+	val search = new controllers.Search(searchIndex, cc)
 
 	override val router = new Routes(
 		httpErrorHandler,
-		projects,
-		datasets,
-		sheets,
-		users,
-		management,
+		search,
 		assets
 	)
 

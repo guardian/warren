@@ -2,6 +2,8 @@ package utils
 
 import java.security.SecureRandom
 
+import model.internal.HashedPassword
+import org.bouncycastle.crypto.generators.OpenBSDBCrypt
 import utils.attempt.{Attempt, LoginFailure}
 
 object Authentication {
@@ -20,20 +22,5 @@ object Authentication {
     val salt = genSalt()
     val hash = OpenBSDBCrypt.generate(password.toCharArray, salt, COST_FACTOR)
     HashedPassword(hash)
-  }
-
-  def checkLogin(providedPassword: String, user: DBUser): Attempt[Unit] = {
-    if (user.registered) {
-      user.password.map { dbPassword =>
-        if (OpenBSDBCrypt.checkPassword(dbPassword.hash, providedPassword.toCharArray)) {
-          Attempt.Right(())
-        } else {
-          println(dbPassword)
-          Attempt.Left[Unit](LoginFailure("Incorrect password"))
-        }
-      }.getOrElse(Attempt.Left[Unit](LoginFailure(s"Attempt to log in as ${user.username} but that user is not managed by laundrette")))
-    } else {
-      Attempt.Left[Unit](LoginFailure("User not registered"))
-    }
   }
 }
