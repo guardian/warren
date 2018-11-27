@@ -1,2 +1,4 @@
+GET    /search                      controllers.Search.search
+
 GET    /												    controllers.Assets.at(file = "index.html")
-GET    /*file                                               controllers.Assets.at(file)
+GET    /*file                       controllers.Assets.at(file)

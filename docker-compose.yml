@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+	elasticsearch:
+		image: docker.elastic.co/elasticsearch/elasticsearch:6.2.4
+		container_name: pfi-elasticsearch
+		environment:
+		- network.publish_host=127.0.0.1
+		- bootstrap.memory_lock=true
+		- "ES_JAVA_OPTS=-Xms4g -Xmx4g"
+		ulimits:
+			memlock:
+				soft: -1
+				hard: -1
+		volumes:
+		- elasticsearch:/usr/share/elasticsearch/data
+		ports:
+		- 7002:9200
+
+volumes:
+	elasticsearch-data:
+		driver: local

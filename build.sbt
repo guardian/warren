@@ -13,27 +13,15 @@ scalacOptions += "-Ypartial-unification"
 libraryDependencies ++= Seq(
   ws,
   // General
-  "com.amazonaws"             % "aws-java-sdk-s3"              % awsVersion,
-  "com.amazonaws"             % "aws-java-sdk-ec2"             % awsVersion,
-  "com.amazonaws"             % "aws-java-sdk-ssm"             % awsVersion,
   "com.typesafe.play"        %% "play-json"                    % "2.6.9",
   "com.beachape"             %% "enumeratum-play"              % "1.5.12-2.6.0-M5",
-  "org.bouncycastle"          % "bcprov-jdk15on"               % "1.58",
   "org.typelevel"            %% "cats-core"                    % "1.4.0",
   "commons-io"                % "commons-io"                   % "2.6",
   "com.iheart"               %% "ficus"                        % "1.4.2",
-  "com.gu"                   %% "play-googleauth"              % "0.7.0",
-  "com.pauldijou"            %% "jwt-play"                     % "0.18.0",
-
-  // Extraction
-  "org.apache.tika"           % "tika-parsers"                 % "1.18" exclude("org.slf4j", "slf4j-jdk14"),
-  "com.levigo.jbig2"          % "levigo-jbig2-imageio"         % "2.0",
 
   // Database
-  "org.postgresql"           %  "postgresql"                   % "42.1.4",
-  "org.scalikejdbc"          %% "scalikejdbc"                  % "3.1.0",
-  "org.scalikejdbc"          %% "scalikejdbc-config"           % "3.1.0",
-  "org.scalikejdbc"          %% "scalikejdbc-play-initializer" % "2.6.0-scalikejdbc-3.1"
+  "com.sksamuel.elastic4s"   %% "elastic4s-http"                   % "6.3.7",
+  "org.elasticsearch.client" % "elasticsearch-rest-client-sniffer" % "6.4.2"
 )
 
 lazy val root = (project in file("."))
@@ -74,7 +62,7 @@ lazy val root = (project in file("."))
 		//assetsPrefix := "build/",
 		resourceDirectory in Assets := baseDirectory.value / "build",
 
-    playDefaultPort := 9119,
+    playDefaultPort := 7000,
     javaOptions in Universal ++= Seq(
       "-Dpidfile.path=/dev/null",
       "-J-XX:MaxRAMFraction=2",
@@ -84,7 +72,7 @@ lazy val root = (project in file("."))
       "-J-XX:+PrintGCDetails",
       "-J-XX:+PrintGCDateStamps",
       "-J-XX:+HeapDumpOnOutOfMemoryError",
-      "-J-Dhttp.port=9119",
+      "-J-Dhttp.port=7000",
       s"-J-Xloggc:/var/log/${name.value}/gc.log",
     )
   )
