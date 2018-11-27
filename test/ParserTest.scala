@@ -1,13 +1,14 @@
-package dev.parser
+package test
 
-import dev.models.{Address, DateOfBirth, Links, NameElement, PersonOfControl}
+import dev.models._
+import dev.parser.Parser
 import org.joda.time.{DateTime, DateTimeZone}
+
 import org.scalatest.{FreeSpec, Matchers}
 
 class ParserTest extends FreeSpec with Matchers {
 
 	"Parser" - {
-
 		"will serialize a file" in {
 			val testDate = DateTime.now(DateTimeZone.UTC).minusDays(3)
 			val address = Address(
