@@ -1,0 +1,11 @@
+.root {
+  will-change: transform;
+}
+
+.root[data-animation=true] {
+  transition: transform .5s;
+}
+
+.root[data-is-dragged=true] {
+  opacity: 0.1;
+}

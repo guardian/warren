@@ -1,0 +1,27 @@
+textarea,
+input {
+	overflow: visible;
+	transition: all 0.2s ease-in-out;
+}
+
+textarea:focus,
+input:focus {
+	outline: none;
+	box-shadow: 0 0 0 2px var(--c-neutral-100);
+}
+
+textarea:hover,
+input:hover {
+	box-shadow: 0 0 0 2px var(--c-coral-100);
+}
+
+/* Not sure about this SVG button hover... */
+.svg-button {
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.svg-button:hover {
+	stroke-width: 1px;
+	stroke: var(--c-coral-50);
+}

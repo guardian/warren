@@ -1,0 +1,47 @@
+@import '../../variables.css';
+
+.base {
+	padding: 1px;
+	overflow: hidden;
+}
+
+.cardCompact {
+	composes: base;
+	border-top: 1px solid var(--c-border);
+	border-bottom: 1px solid var(--c-border);
+}
+
+.card {
+	composes: base;
+	box-shadow: var(--sh-card);
+	border-radius: var(--radius-default);
+	background: #fff;
+}
+
+.card[data-with-accent] {
+	border-left: 4px solid currentColor;
+}
+
+.contents {
+	border-top: 1px solid var(--c-border);
+}
+
+.title {
+	width: 100%;
+	display: flex;
+	align-items: stretch;
+	justify-content: stretch;
+}
+
+.titleButton {
+	justify-content: flex-start;
+	min-height: 100%;
+}
+
+.titleButton:first-child {
+	flex: 1 1 0;
+}
+
+.titleButton svg {
+	margin-left: -0.25em;
+}

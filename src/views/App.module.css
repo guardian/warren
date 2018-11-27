@@ -1,0 +1,134 @@
+.frame {
+	height: 100vh;
+	width: 100vw;
+	-webkit-text-size-adjust: 100%;
+	-webkit-user-drag: none;
+	display: flex;
+	flex-direction: column;
+}
+
+.app {
+	flex: 1 1 0;
+	display: flex;
+}
+
+.header {
+	z-index: 9999;
+	background-color: var(--c-coral-50);
+	padding: var(--sp-base);
+	color: var(--c-light-text);
+	box-shadow: var(--sh-subtle);
+	border-bottom: 1px solid var(--c-border-light);
+}
+
+.icon {
+	position: relative;
+	width: 31px;
+	height: 31px;
+	cursor: default;
+}
+
+.icon[data-clickable] {
+	cursor: pointer;
+}
+
+.icon[data-clickable]:hover > .title {
+	transform: scaleX(0);
+	transition: transform 0.2s ease 0s;
+}
+
+.icon[data-clickable]:hover > .back {
+	transform: scaleX(1);
+	transition: transform 0.2s ease 0.11s;
+}
+
+.title {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 25px;
+	height: 25px;
+
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 23px;
+	user-select: none;
+	font-weight: bold;
+	text-align: center;
+
+	border: 3px solid white;
+
+	transform: scaleX(1);
+	transition: transform 0.2s ease 0.11s;
+}
+
+.back {
+	transform: scaleX(0);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 32px;
+	height: 32px;
+
+	color: var(--c-light-text);
+	display: block;
+
+	transition: transform 0.2s ease 0s;
+}
+
+.messageContainer {
+	top: 80px;
+	left: 0;
+	position: absolute;
+	z-index: 999;
+}
+
+.message {
+	display: flex;
+	align-items: center;
+	margin: var(--sp-base);
+	padding: var(--sp-vertical) var(--sp-base);
+	user-select: none;
+	border-radius: var(--radius-default);
+	cursor: default;
+}
+
+.message svg {
+	margin-right: var(--sp-base);
+	cursor: pointer;
+	font-size: 1.5em;
+}
+
+.message[data-type='error'] {
+	background: var(--c-a11y-red);
+}
+
+.message[data-type='info'] {
+	background: var(--c-gray);
+}
+
+.modalDimmer {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0, 0, 0, 0.15);
+}
+
+.modalPanel {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 800px;
+	max-height: 80%;
+	margin-top: 5%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: var(--sp-double);
+	border: 1px solid var(--c-border);
+	border-radius: var(--br-default);
+	box-shadow: var(--sh-normal);
+	overflow: auto;
+	background: var(--c-neutral-100);
+	color: var(--c-dark-text);
+}

@@ -1,0 +1,26 @@
+.root {
+	background: rgba(0, 0, 0, 0.8);
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.textContainer {
+	color: var(--c-light-text);
+	font-size: var(--fs-large);
+	width: 20%;
+}
+
+.textContainer code {
+	color: var(--c-accent-blue);
+}
+
+.continueNotice {
+	position: absolute;
+	left: 50%;
+	bottom: 10%;
+	transform: translate(-50%, 0);
+	color: var(--c-light-text);
+}

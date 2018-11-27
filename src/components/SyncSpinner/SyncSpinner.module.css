@@ -1,0 +1,41 @@
+.spinner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: currentColor;
+
+	animation: spinner 1s linear infinite;
+	width: 80%;
+	height: 80%;
+}
+
+.spinner[data-cloud] {
+	color: var(--c-light-text);
+}
+
+.wrapper {
+	position: relative;
+	transform: scaleX(-1);
+
+	width: 1em;
+	height: 1em;
+}
+
+.overlap {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.cloud {
+	font-size: 1.5em;
+	position: absolute;
+	top: -0.17em;
+	left: -0.2em;
+}
+
+@keyframes spinner {
+	to {
+		transform: rotate(-360deg);
+	}
+}

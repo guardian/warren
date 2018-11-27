@@ -1,0 +1,15 @@
+@import './reset.css';
+
+/* Our lovely design system primitives */
+@import '../variables.css';
+
+/* Overrides for standard HTML elements */
+@import './html/input.css';
+@import './html/headings.css';
+
+.image-frame__16-9 {
+	width: 100%;
+	padding-top: 56.25%;
+	background-size: cover;
+	background-position: 50% 50%;
+}

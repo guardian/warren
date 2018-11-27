@@ -1,0 +1,21 @@
+/* Todo */
+h1 {
+
+}
+
+/* Todo */
+h2 {
+
+}
+
+/* Same size as other text but bold and a little margin
+ * Useful for heading up groups of related components
+ * but not stuff like subtitles or whatever...
+ */
+h3 {
+    display: block;
+    font-weight: bold;
+    line-height: 1.2;
+    font-size: var(--fs-normal);
+    margin: 0;
+}

@@ -1,0 +1,73 @@
+/*
+ * Welcome friends, to varibles.css
+ *
+ * This is where we try to define our design language!
+ *
+ * Try your best to reuse these variables whenever possible!
+ */
+:root {
+	/* Colors */
+	--c-neutral-100: #ffffff;
+	--c-neutral-95: #fafafa;
+	--c-neutral-90: #f9f9f9;
+	--c-coral-50: #efc2c2;
+	--c-coral-75: #f18aa6;
+	--c-coral-100: #f4528a;
+
+	--c-secondary-light: coral;
+	--c-secondary: #f4528a;
+
+	--c-gray-dark: #bbcdd3;
+	--c-gray: #dae4e7;
+	--c-gray-light: #e9eff1;
+
+	--c-highlight-light: rgba(255, 229, 0, 25);
+	--c-highlight: #ffe500;
+	--c-highlight-dark: #ffbb50;
+
+	--c-border-lighter: rgba(0, 0, 0, 0.025);
+	--c-border-light: rgba(0, 0, 0, 0.05);
+	--c-border: rgba(0, 0, 0, 0.15);
+	--c-border-dark: rgba(0, 0, 0, 0.2);
+
+	--c-a11y-red: rgb(214, 100, 30);
+	--c-a11y-green: rgb(43, 159, 120);
+
+	--c-accent-blue: #90dcff;
+	--c-accent-mint: #daffe7;
+	--c-accent-purple: #e1c7f5;
+	--c-accent-red: #ff4e36;
+	--c-accent-orange: #ff7f0f;
+	--c-accent-pink: #ffabdb;
+
+	--c-dark-text: #000000;
+	--c-light-text: #ffffff;
+
+	/* Spacing */
+	--sp-small: 4px;
+	--sp-base: 10px;
+	--sp-vertical: calc(var(--sp-base) / 1.33);
+	--sp-double: 20px;
+
+	--br-default: 10px;
+
+	/* Radii */
+	--radius-default: 3px;
+
+	/* Shadows */
+	--sh-normal: 0 2px 2px 0px rgba(0, 0, 0, 0.1);
+	--sh-border: inset 0 0 0 1px var(--c-border);
+	--sh-card: var(--sh-normal), var(--sh-border);
+
+	/* Fonts */
+	--ff-title: Avenir;
+	--ff-text: system-ui;
+	--ff-serif-text: 'CMU Concrete';
+
+	--fs-tiny: 0.75rem;
+	--fs-small: 0.9rem;
+	--fs-normal: 1rem;
+	--fs-large: 1.2rem;
+	--fs-massive: 1.5rem;
+	--fs-text-input: 16px;
+}

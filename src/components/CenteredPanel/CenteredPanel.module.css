@@ -1,0 +1,14 @@
+.root {
+	margin-top: var(--sp-double);
+	margin-left: auto;
+	margin-right: auto;
+
+	min-width: 300px;
+	width: fit-content;
+
+	padding: var(--sp-double);
+	border: 1px solid var(--c-border);
+	border-radius: var(--br-default);
+	box-shadow: var(--sh-normal);
+	overflow: hidden;
+}

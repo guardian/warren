@@ -1,0 +1,26 @@
+.root {
+	padding: var(--sp-double);
+	overflow: hidden;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+}
+
+.content input[type='text'],
+.content input[type='email'],
+.content input[type='password'] {
+	display: block;
+	width: stretch;
+}
+
+.label {
+	font-weight: 600;
+	display: block;
+	padding: var(--sp-vertical) var(--sp-base);
+}
+
+.children {
+	padding: var(--sp-vertical) var(--sp-base);
+}

@@ -1,0 +1,10 @@
+.root {
+	border-bottom: 1px solid var(--c-border);
+	background: var(--c-coral-50);
+	-webkit-app-region: drag;
+	-webkit-user-select: none;
+}
+
+body[data-focused='false'] .root {
+	background: var(--c-gray-dark);
+}

@@ -1,0 +1,32 @@
+@import '../../variables.css';
+
+.wrap {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.wrap .title {
+	padding-bottom: 0;
+}
+
+.title {
+	padding-bottom: var(--sp-small);
+	opacity: 0.85;
+}
+
+.title[data-has-help='true'] {
+	cursor: help;
+}
+
+.title svg {
+	vertical-align: bottom;
+	padding-left: var(--radius-default);
+	opacity: 0.5;
+}
+
+.verticalWrap {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}

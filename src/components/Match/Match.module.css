@@ -1,0 +1,28 @@
+.base svg {
+	width: 1.1em;
+	height: 1.1em;
+	display: block;
+	margin-left: 0.05em;
+}
+
+.base[data-missing='true'] {
+	opacity: 0.5;
+}
+
+.base {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	height: 1em;
+}
+
+.value {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.icon {
+	width: 1.6em;
+	flex: 0 0 auto;
+}

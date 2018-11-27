@@ -1,0 +1,43 @@
+@import '../../variables.css';
+
+.switch {
+	--height: 1.25em;
+	--width: 2.25em;
+}
+
+.checkbox {
+	position: absolute;
+	left: -999px;
+}
+.checkbox + .target::before {
+	content: ' ';
+	display: block;
+	position: relative;
+	background-color: var(--c-neutral-100);
+	z-index: 100;
+	width: var(--height);
+	height: var(--height);
+	border-radius: 100%;
+	transition: all 0.1s ease-in-out;
+	transform: scale(0.8);
+}
+
+.checkbox:checked + .target:before {
+	transform: translateX(calc(var(--width) - var(--height))) scale(0.8);
+}
+
+.checkbox + .target {
+	position: relative;
+	background: var(--c-a11y-red);
+	top: 0;
+	left: 0;
+	width: var(--width);
+	height: var(--height);
+	border-radius: 100px;
+	box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+	transition: all 0.1s ease-in-out;
+}
+
+.checkbox:checked + .target {
+	background-color: var(--c-a11y-green);
+}

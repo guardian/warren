@@ -1,0 +1,45 @@
+.row {
+	padding: var(--sp-vertical) var(--sp-base);
+	transition: box-shadow 0.25s;
+}
+
+.row:not(:first-child) {
+	border-top: 1px solid var(--c-border);
+}
+
+.row:hover {
+	box-shadow: inset -16px 0 0 0px var(--c-highlight);
+	cursor: pointer;
+	user-select: none;
+}
+
+.rowSelected {
+	composes: row;
+	box-shadow: inset -8px 0 0 0px var(--c-highlight);
+	cursor: default;
+	user-select: none;
+}
+
+.match {
+	margin-top: var(--sp-small);
+}
+
+.match:not([data-missing='true']) {
+	font-weight: 600;
+}
+
+.fileName {
+	font-size: var(--fs-small);
+	opacity: 0.8;
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.noMatch {
+	padding: var(--sp-vertical) var(--sp-base);
+	opacity: 0.5;
+	text-align: center;
+	display: block;
+}
