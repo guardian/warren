@@ -118,7 +118,7 @@ object PersonOfControl {
 	implicit val format = Json.reads[PersonOfControl]
 }
 
-case class LegalPerson(
+case class EntityData(
 	address: Address,
 	ceased_on: Option[DateTime],
 	etag: String,
@@ -128,6 +128,15 @@ case class LegalPerson(
 	name: String,
 	natures_of_control: Set[String],
 	notified_on: DateTime,
+)
+
+object EntityData {
+	implicit val format = Json.reads[EntityData]
+}
+
+case class LegalPerson(
+	company_number: String,
+	data: EntityData,
 ) extends Entry
 
 object LegalPerson {
@@ -135,15 +144,8 @@ object LegalPerson {
 }
 
 case class CorporateEntity(
-	address: Address,
-	ceased_on: Option[DateTime],
-	etag: String,
-	identification: Identification,
-	kind: String,
-	links: Links,
-	name: String,
-	natures_of_control: Set[String],
-	notified_on: DateTime,
+	company_number: String,
+	data: EntityData,
 ) extends Entry
 
 object CorporateEntity {
