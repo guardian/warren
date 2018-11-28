@@ -3,55 +3,58 @@ package test
 import dev.models._
 import dev.parser.Parser
 import org.joda.time.{DateTime, DateTimeZone}
-
 import org.scalatest.{FreeSpec, Matchers}
+
+import scala.io.Source
 
 class ParserTest extends FreeSpec with Matchers {
 
 	"Parser" - {
-		"will serialize a file" in {
-			val testDate = DateTime.now(DateTimeZone.UTC).minusDays(3)
-			val address = Address(
-				"redacted",
-				None,
-				None,
-				None,
-				None,
-				None,
-				"A1 2BC",
-				"Nowhere",
-				None
-			)
-			val nameElements = NameElement(
-				Some("Mx"),
-				Some("Red"),
-				Some("Acted"),
-				None,
-				"Acted",
-			)
-			val links = Links(
-				"link-redacted",
-				None
-			)
-			val person = PersonOfControl(
-				"12345677890",
+		val notifiedOn = DateTime.parse("2018-11-11")
+		val address = Address(
+			"Nowhere",
+			None,
+			None,
+			None,
+			None,
+			None,
+			"123 ABC",
+			"000",
+			None
+		)
+		val nameElements = NameElement(
+			Some("Mx."),
+			Some("Red"),
+			None,
+			None,
+			"Acted",
+		)
+		val links = Links(
+			"link-redacted",
+			None
+		)
+		val person = PersonOfControl(
+			"01234567",
+			PersonOfControlData(
 				address,
 				"123456778901234567789012345677890",
 				"individual-person-with-significant-control",
 				links,
-				DateTime.now(DateTimeZone.UTC).minusDays(3),
+				notifiedOn,
 				None,
-				Set("ight-to-appoint-and-remove-directors"),
-				"Redcted-nationality",
-				"Redcted-residence",
+				Set("right-to-appoint-and-remove-directors"),
+				"Redacted-nationality",
+				"Redacted-residence",
 				"Mx Red Acted",
 				nameElements,
-				DateOfBirth(None, 2, 2000)
+				DateOfBirth(None, 11, 1911)
 			)
+		)
 
-			val fileContents = Parser.importFileContents("/testData.txt")
-
-			Parser.parseFile(fileContents) shouldEqual Iterable(person)
+		"will serialize a file" in {
+			val resourcePath = getClass.getResource("/testData.txt").getPath
+			println(resourcePath)
+			Parser.parseFileContents(resourcePath) shouldEqual Iterable(person)
 		}
 
 	}
