@@ -90,22 +90,28 @@ object NameElement {
 	implicit val format = Json.reads[NameElement]
 }
 
-case class PersonOfControl(
-	companyNumber: String,
+case class PersonOfControlData(
 	address: Address,
-
 	etag: String,
 	kind: String,
 	links: Links,
-	notifiedOn: DateTime,
-	ceasedOn: Option[DateTime],
-	naturesOfControl: Set[String],
-
+	notified_on: DateTime,
+	ceased_on: Option[DateTime],
+	natures_of_control: Set[String],
 	nationality: String,
-	countryOfResidence: String,
+	country_of_residence: String,
 	name: String,
-	nameElements: NameElement,
-	dateOfBirth: DateOfBirth,
+	name_elements: NameElement,
+	date_of_birth: DateOfBirth,
+)
+
+object PersonOfControlData {
+	implicit val format = Json.reads[PersonOfControlData]
+}
+
+case class PersonOfControl(
+	company_number: String,
+	data: PersonOfControlData
 ) extends Entry
 
 object PersonOfControl {
