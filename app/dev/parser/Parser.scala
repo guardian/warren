@@ -13,7 +13,7 @@ object Parser {
 		kind match {
 			case Some("individual-person-with-significant-control") => entry.validate[PersonOfControl]
 			case Some("corporate-entity-person-with-significant-control") => entry.validate[CorporateEntity]
-			case Some("legal-person-with-significant-control") => entry.validate[LegalPerson]
+			case Some("legal-person-person-with-significant-control") => entry.validate[LegalPerson]
 			case _ => JsError("Help!")
 		}
 	}

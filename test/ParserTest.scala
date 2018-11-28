@@ -50,13 +50,27 @@ class ParserTest extends FreeSpec with Matchers {
 				DateTime.parse("2018-10-10"),
 			)
 		)
+		val legalPerson = LegalPerson(
+			"00887766",
+			EntityData(
+				address,
+				None,
+				"000456888901234568889012345688000",
+				Identification("English Law",  "Individual", None, None, None),
+				"legal-person-person-with-significant-control",
+				Links("link-redacted", None),
+				"Legal Person",
+				Set("significant-influence-or-control"),
+				DateTime.parse("2016-06-06"),
+			)
+		)
 
 
 		"will serialize a file" in {
 
 			val resourcePath = getClass.getResource("/testData.txt").getPath
 			println(resourcePath)
-			Parser.parseFileContents(resourcePath) shouldEqual Iterable(personOfControl, corporateEntity)
+			Parser.parseFileContents(resourcePath) shouldEqual Iterable(personOfControl, corporateEntity, legalPerson)
 		}
 
 	}
